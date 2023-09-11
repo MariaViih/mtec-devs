@@ -1,0 +1,19 @@
+git config --global user.email mariaviih772@gmail.com
+git config --global user.name "Maria Vitória Galvão"
+git clone
+
+\* Começando uma solução e um projeto MVC */
+dotnet new sln --name MtecDevs
+dotnet new mvc -o MtecDevs -f net6.0
+dotnet sln add MtecDevs\MtecDevs.csproj
+
+instalando os pacotes **
+dotnet add package Microsoft.EntityFrameworkCore --version 6.0.21
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0.21
+dotnet add package Pomelo.EntityFrameworkCore.MySql --version 6.0.2
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 6.0.21
+
+Dados 
+Usuarios - Devs
+        nome, data nascimento,foto perfil,TipoDev
+TipoDev- front/back/full/ux-ui/Design
