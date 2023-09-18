@@ -17,3 +17,15 @@ Dados
 Usuarios - Devs
         nome, data nascimento,foto perfil,TipoDev
 TipoDev- front/back/full/ux-ui/Design
+
+criou classe contexto
+criou a connectiomString
+adicionou serviços DbContext e Identity ao program
+
+criar a migração
+dotnet ef 
+dotnet tool install --global dotnet-ef
+
+dotnet ef migrations add criar-banco
+
+dotnet ef database update 
