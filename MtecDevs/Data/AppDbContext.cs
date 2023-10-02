@@ -20,6 +20,8 @@ public class AppDbContext : IdentityDbContext
     protected override void OnModelCreating(ModelBuilder builer)
     {
         base.OnModelCreating(builer);
+        AppDbSeed appDbSeed = new(builer);
+       
         //fluntAPI
     }
 }
