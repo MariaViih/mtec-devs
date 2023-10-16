@@ -11,44 +11,42 @@ public class AppDbSeed
         #region Popular dos dados de TipoDev
         List<TipoDev> tipoDevs = new() {
             new TipoDev() {
-                id =1,
-                Nome = "fullStack"
+                Id = 1,
+                Nome = "FullStack"
+            }, 
+            new TipoDev() {
+                Id = 2,
+                Nome = "FrontEnd"
             },
             new TipoDev() {
-                id =2,
-                Nome = "FrondEnd"
-            },
-            new TipoDev() {
-                id =3,
+                Id = 3,
                 Nome = "BackEnd"
             },
             new TipoDev() {
-                id =4,
+                Id = 4,
                 Nome = "Design"
             },
-                new TipoDev() {
-                id =5,
+            new TipoDev() {
+                Id = 5,
                 Nome = "Jogos"
             }
         };
         builder.Entity<TipoDev>().HasData(tipoDevs);
         #endregion
 
-
-
-        #region  Popular dos dados Perfis de Úsuario
+        #region Popular dos dados Perfis de Usuário
         List<IdentityRole> roles = new() {
-            new IdentityRole(){
+            new IdentityRole() {
                 Id = Guid.NewGuid().ToString(),
                 Name = "Administrador",
                 NormalizedName = "ADMINISTRADOR"
             },
-            new IdentityRole(){
+            new IdentityRole() {
                 Id = Guid.NewGuid().ToString(),
                 Name = "Moderador",
                 NormalizedName = "MODERADOR"
             },
-            new IdentityRole(){
+            new IdentityRole() {
                 Id = Guid.NewGuid().ToString(),
                 Name = "Usuário",
                 NormalizedName = "USUÁRIO"
@@ -57,44 +55,42 @@ public class AppDbSeed
         builder.Entity<IdentityRole>().HasData(roles);
         #endregion
 
-        #region  Popular dos dados Úsuarios    
+        #region Popular dos dados Usuários
+        // Cria a lista de contas
         List<IdentityUser> users = new() {
             new IdentityUser() {
-                Id =Guid.NewGuid().ToString(),
-                Email = "mariaviih772@gmail.com",
-                NormalizedEmail = "MARIAVIIH772@GMAIL.COM",
-                UserName = "MariaVitoria",
-                NormalizedUserName = "MARIAVITORIA",
+                Id = Guid.NewGuid().ToString(),
+                Email = "gallojunior@gmail.com",
+                NormalizedEmail = "GALLOJUNIOR@GMAIL.COM",
+                UserName = "GalloJunior",
+                NormalizedUserName = "GALLOJUNIOR",
                 LockoutEnabled = false,
-                PhoneNumber = "14997827680",
+                PhoneNumber = "14912345678",
                 PhoneNumberConfirmed = true,
                 EmailConfirmed = true
             }
         };
-
-        //criptografar senhas
-        foreach (var user in users)
-        {
+        // Criptografar as senhas
+        foreach (var user in users) {
             PasswordHasher<IdentityUser> pass = new();
             user.PasswordHash = pass.HashPassword(user, "@Etec123");
         }
-
-        //adiciona a conta no banco 
+        // Adiciona a conta no banco
         builder.Entity<IdentityUser>().HasData(users);
 
-        // cria a conta pessoal do Úsuario
+        // Cria a conta pessoal do usuário
         List<Usuario> usuarios = new() {
             new Usuario() {
                 UserId = users[0].Id,
-                Nome = "MARIAVITORIA",
-                DataNascimento = DateTime.Parse("09/06/2006"),
+                Nome = "José Antonio Gallo Junior",
+                DataNascimento = DateTime.Parse("05/08/1981"),
                 TipoDevId = 1,
-                Foto = "/img/usuarios/avatar.jpg"
+                Foto = "/img/usuarios/avatar.png"
             }
         };
         builder.Entity<Usuario>().HasData(usuarios);
 
-        //Associar o úsuario ao tipo de perfil
+        // Associar o usuário ao tipo de perfil
         List<IdentityUserRole<string>> userRoles = new() {
             new IdentityUserRole<string>() {
                 UserId = users[0].Id,
@@ -102,8 +98,7 @@ public class AppDbSeed
             }
         };
         builder.Entity<IdentityUserRole<string>>().HasData(userRoles);
-
-
         #endregion
+
     }
 }

@@ -7,16 +7,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// objetos auxiliar de conexão
+// Objetos auxiliar de conexão
 string conn = builder.Configuration.GetConnectionString("MtecDevs");
 var version = ServerVersion.AutoDetect(conn);
 
-// Serviço de conexão com banco
+// Serviço de conexão com o banco de dados - Contexto
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(conn, version)
 );
 
-// Serviço gestão de usuário
+// Serviço de gestão de usuário - Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
@@ -36,7 +36,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

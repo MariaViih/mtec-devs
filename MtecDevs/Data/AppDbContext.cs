@@ -6,24 +6,18 @@ namespace MtecDevs.Data;
 
 public class AppDbContext : IdentityDbContext
 {
-
     public AppDbContext(DbContextOptions opcoes) : base(opcoes)
     {
-
     }
-
-
 
     public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<TipoDev> TipoDevs { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder builer)
+    protected override void OnModelCreating(ModelBuilder builder)
     {
-        base.OnModelCreating(builer);
-        AppDbSeed appDbSeed = new(builer);
-       
-        //fluntAPI
+        base.OnModelCreating(builder);
+        AppDbSeed appDbSeed = new(builder);
+
+        // FluentAPI
     }
 }
-
-

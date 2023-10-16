@@ -11,8 +11,8 @@ using MtecDevs.Data;
 namespace MtecDevs.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231002111715_popular-dados")]
-    partial class populardados
+    [Migration("20231016104441_criar-banco")]
+    partial class criarbanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,22 +49,22 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ab82aaf3-c1ba-4234-901c-c26d44235c04",
-                            ConcurrencyStamp = "b08b1771-6f90-4f9f-9767-c92c65d4bf2f",
+                            Id = "021a52e0-3859-432d-8248-e4bbf5d94595",
+                            ConcurrencyStamp = "5bfa7ab7-d69a-4dc6-a3cd-0c06d2736db4",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "22fba5f8-26a0-4f39-8528-b5b60328a504",
-                            ConcurrencyStamp = "da122714-3e76-4f08-a0bf-df6db5188a11",
+                            Id = "b5d07778-0a66-4dbb-8079-6d80e3a962bd",
+                            ConcurrencyStamp = "74158ee0-b274-47cd-bdcf-23cc1389b704",
                             Name = "Moderador",
                             NormalizedName = "MODERADOR"
                         },
                         new
                         {
-                            Id = "04656110-a95f-4a0e-b0b7-23c9526f587a",
-                            ConcurrencyStamp = "5e5730e1-36a4-4dd2-97b2-a1b16e358bad",
+                            Id = "775ac2ab-0fff-4105-80cb-6a23d3036ff6",
+                            ConcurrencyStamp = "f57ade0f-0552-4ff5-bbef-c839efd430f8",
                             Name = "Usuário",
                             NormalizedName = "USUÁRIO"
                         });
@@ -159,20 +159,20 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4dc07cde-b627-47fe-9c4e-a91bd1e4ef1a",
+                            Id = "13301035-737a-40b7-88a9-6f4b7ad9dc23",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2d30e0e1-a0fc-46b5-9b07-bfef27a59746",
-                            Email = "mariaviih772@gmail.com",
+                            ConcurrencyStamp = "b197e5e0-821a-4421-bb45-1da3824d89e8",
+                            Email = "gallojunior@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "MARIAVIIH772@GMAIL.COM",
-                            NormalizedUserName = "MARIAVITORIA",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDhPrcoMWOClPm5TQEcdpAvWjNZhSzRdcnsAmcEFB33e9K1sA/CoXXyne+fPXsskAQ==",
-                            PhoneNumber = "14997827680",
+                            NormalizedEmail = "GALLOJUNIOR@GMAIL.COM",
+                            NormalizedUserName = "GALLOJUNIOR",
+                            PasswordHash = "AQAAAAEAACcQAAAAELu29m6oARUEzSno4Rsm4vka4Xz3gDU2fO/Agr34mBmYIkWS9bIhJG8xTe+dJavVGg==",
+                            PhoneNumber = "14912345678",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "fdb40ac5-7fcc-4769-b7d4-606574e642ec",
+                            SecurityStamp = "4a3344a4-c8c1-4c70-b17b-1accd2d281d7",
                             TwoFactorEnabled = false,
-                            UserName = "MariaVitoria"
+                            UserName = "GalloJunior"
                         });
                 });
 
@@ -238,8 +238,8 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "4dc07cde-b627-47fe-9c4e-a91bd1e4ef1a",
-                            RoleId = "ab82aaf3-c1ba-4234-901c-c26d44235c04"
+                            UserId = "13301035-737a-40b7-88a9-6f4b7ad9dc23",
+                            RoleId = "021a52e0-3859-432d-8248-e4bbf5d94595"
                         });
                 });
 
@@ -264,7 +264,7 @@ namespace MtecDevs.Migrations
 
             modelBuilder.Entity("MtecDevs.Models.TipoDev", b =>
                 {
-                    b.Property<byte>("id")
+                    b.Property<byte>("Id")
                         .HasColumnType("tinyint unsigned");
 
                     b.Property<string>("Nome")
@@ -272,34 +272,34 @@ namespace MtecDevs.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("varchar(30)");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("TipoDev");
 
                     b.HasData(
                         new
                         {
-                            id = (byte)1,
-                            Nome = "fullStack"
+                            Id = (byte)1,
+                            Nome = "FullStack"
                         },
                         new
                         {
-                            id = (byte)2,
-                            Nome = "FrondEnd"
+                            Id = (byte)2,
+                            Nome = "FrontEnd"
                         },
                         new
                         {
-                            id = (byte)3,
+                            Id = (byte)3,
                             Nome = "BackEnd"
                         },
                         new
                         {
-                            id = (byte)4,
+                            Id = (byte)4,
                             Nome = "Design"
                         },
                         new
                         {
-                            id = (byte)5,
+                            Id = (byte)5,
                             Nome = "Jogos"
                         });
                 });
@@ -333,10 +333,10 @@ namespace MtecDevs.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "4dc07cde-b627-47fe-9c4e-a91bd1e4ef1a",
-                            DataNascimento = new DateTime(2006, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Foto = "/img/usuarios/",
-                            Nome = "MARIAVITORIA",
+                            UserId = "13301035-737a-40b7-88a9-6f4b7ad9dc23",
+                            DataNascimento = new DateTime(1981, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Foto = "/img/usuarios/avatar.png",
+                            Nome = "José Antonio Gallo Junior",
                             TipoDevId = (byte)1
                         });
                 });
@@ -400,13 +400,13 @@ namespace MtecDevs.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "MyProperty")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "AccountUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("MyProperty");
+                    b.Navigation("AccountUser");
 
                     b.Navigation("TipoDev");
                 });
