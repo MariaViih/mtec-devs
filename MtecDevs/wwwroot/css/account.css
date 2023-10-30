@@ -9,7 +9,7 @@ form {
     width: 400px !important;
 }
 
-.text-decoretion-none:hover {
+.text-decoration-none:hover {
     text-decoration: underline !important;
 }
 
@@ -30,6 +30,5 @@ form {
 .separator .line {
     flex: 1;
     height: 1px;
-    background-color: var(--bas-body-color);
+    background-color:  var(--bs-body-color);
 }
-
